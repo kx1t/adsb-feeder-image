@@ -13,6 +13,13 @@ set -e
 source /common.sh
 install_cleanup_trap
 
+# this is no longer a submodule - the user needs to figure out how to get this in place before running the build
+if [ ! -f /filesystem/root/usr/local/share/adsb-pi-setup/app.py ]; then
+	echo "adsb-pi-setup missing from sources"
+        echo "	- please manually check out this project into filesystem/root/usr/local/share/adsb-pi-setup"
+	exit 1
+fi
+
 unpack /filesystem/root /
 
   apt-get update --allow-releaseinfo-change

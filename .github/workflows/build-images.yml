@@ -83,7 +83,12 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: repository
-        submodules: true
+
+    - name: Checkout adsb-pipsetup
+      uses: actions/checkout@v2
+      with:
+        repository: 'dirkhh/adsb-pi-setup'
+        path: repository/src/modules/adsb-pi-setup/filesystem/root/usr/local/share/adsb-pi-setup
 
     - name: Download image
       run: |
